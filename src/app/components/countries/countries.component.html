@@ -4,10 +4,14 @@
 
   <div class="mx-auto">
     <div class="form-group col-lg-5 mx-auto">
-        <label for="c">Select Country</label>
-        <select name="" class="form-control" id="c">
+        <label style="font-weight: 500;" for="c">Select Country</label>
+        <select name="" class="form-control" id="c"  #input (change)='updateValues(input.value)'>
+            <option value="" disabled selected hidden>Select Country</option>
             <option value="{{con}}" *ngFor='let con of countries'>{{con}}</option>
         </select>
     </div>
 </div>
+<app-dashboardcards [totalConfirmed]='totalConfirmed' 
+  [totalActive]='totalActive' [totalRecovered]='totalRecovered' 
+  [totalDeaths]='totalDeaths'></app-dashboardcards>
 </div>

@@ -44,7 +44,7 @@ constructor(private httpclient: HttpClient) { }
             raw[cs.country] = cs;
            }
           });
-          console.log(raw);
+          //  console.log(raw);
 
        //   console.log(data);
 
