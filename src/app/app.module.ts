@@ -8,9 +8,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { CountriesComponent } from './components/countries/countries.component';
 import { DashboardcardsComponent } from './components/dashboardcards/dashboardcards.component';
-import { Ng2GoogleChartsModule, GoogleChartsSettings } from 'ng2-google-charts';
 // import { NavbarComponent } from './compnents/navbar/navbar.component';
 // import { HomeComponent } from './compnents/home/home.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { Ng2GoogleChartsModule, GoogleChartsSettings } from 'ng2-google-charts';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    Ng2GoogleChartsModule
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
