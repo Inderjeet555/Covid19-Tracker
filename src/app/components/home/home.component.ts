@@ -15,12 +15,13 @@ export class HomeComponent implements OnInit {
   totalActive = 0;
   totalDeaths = 0;
   totalRecovered = 0;
+  loading = true;
   globalData: GlobalDataSummary[];
   datatable = [];
   chart = {
-    PieChart: "PieChart",
+    PieChart: 'PieChart',
     ColumnChart: 'ColumnChart',
-    LineChart: "LineChart",
+    LineChart: 'LineChart',
     height: 500,
     options: {
       animation: {
@@ -29,7 +30,7 @@ export class HomeComponent implements OnInit {
       },
       is3D: true
     }
-  }
+  };
 
 
   initChart(caseType: string) {
@@ -38,26 +39,26 @@ export class HomeComponent implements OnInit {
 
     this.globalData.forEach(cs => {
       let value: number;
-      if (caseType == 'c')
+      if (caseType === 'c')
         if (cs.confirmed > 2000)
-          value = cs.confirmed
+          value = cs.confirmed;
 
-      if (caseType == 'a')
+      if (caseType === 'a')
         if (cs.active > 2000)
-          value = cs.active
-      if (caseType == 'd')
+          value = cs.active;
+      if (caseType === 'd')
         if (cs.deaths > 1000)
-          value = cs.deaths
+          value = cs.deaths;
 
-      if (caseType == 'r')
+      if (caseType === 'r')
         if (cs.recovered > 2000)
-          value = cs.recovered
+          value = cs.recovered;
 
 
       this.datatable.push([
         cs.country, value
-      ])
-    })
+      ]);
+    });
     console.log(this.datatable);
   }
 
@@ -78,6 +79,9 @@ export class HomeComponent implements OnInit {
           // console.log(this.totalActive);
           // console.log(this.globalData);
           this.initChart('c');
+        }
+        , complete: () => {
+         this.loading = false;
         }
       });
   }
